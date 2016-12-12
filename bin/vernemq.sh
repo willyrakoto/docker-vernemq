@@ -5,7 +5,7 @@ IP_ADDRESS=$(ip -4 addr show eth0 | grep -oP "(?<=inet).*(?=/)"| sed -e "s/^[[:s
 # Ensure correct ownership and permissions on volumes
 #chown vernemq:vernemq /var/lib/vernemq /var/log/vernemq
 #chmod 755 /var/lib/vernemq /var/log/vernemq
-
+touch /var/log/vernemq/console.log
 cp -r /tmp/lib/* /var/lib/vernemq/
 cp -r /tmp/conf/* /etc/vernemq/
 cp -r /tmp/vm.args /etc/vernemq/
