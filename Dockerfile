@@ -24,7 +24,7 @@ ADD bin/vernemq.sh /usr/sbin/start_vernemq
 ADD bin/rand_cluster_node.escript /tmp/rand_cluster_node.escript
 
 RUN chown vernemq:vernemq /var/lib/vernemq /var/log/vernemq \
- && chmod 755 /var/lib/vernemq /var/log/vernemq
+ && chmod 755 /var/lib/vernemq /var/log/vernemq /etc/vernemq
 
 # MQTT
 #EXPOSE 8081 
