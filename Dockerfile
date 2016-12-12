@@ -13,11 +13,15 @@ ENV VERNEMQ_VERSION 0.15.2-12db8f80
 ADD https://bintray.com/artifact/download/erlio/vernemq/deb/jessie/vernemq_$VERNEMQ_VERSION-1_amd64.deb /tmp/vernemq.deb
 
 RUN dpkg -i /tmp/vernemq.deb
+RUN mkdir /tmp/conf && mkdir /tmp/lib && mkdir /tmp/log
+RUN cp -r /etc/vernemq/* /tmp/conf/ \
+ && cp -r /var/lib/vernemq/* /tmp/lib/ \
+ && cp -r /var/log/vernemq/* /tmp/log/
 RUN rm /tmp/vernemq.deb
 
-ADD files/vm.args /etc/vernemq/vm.args
+ADD files/vm.args /tmp/vm.args
 ADD bin/vernemq.sh /usr/sbin/start_vernemq
-ADD bin/rand_cluster_node.escript /var/lib/vernemq/rand_cluster_node.escript
+ADD bin/rand_cluster_node.escript /tmp/rand_cluster_node.escript
 
 RUN chown vernemq:vernemq /var/lib/vernemq /var/log/vernemq \
  && chmod 755 /var/lib/vernemq /var/log/vernemq
