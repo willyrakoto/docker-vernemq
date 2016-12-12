@@ -15,8 +15,7 @@ ADD https://bintray.com/artifact/download/erlio/vernemq/deb/jessie/vernemq_$VERN
 RUN dpkg -i /tmp/vernemq.deb
 RUN mkdir /tmp/conf && mkdir /tmp/lib && mkdir /tmp/log
 RUN cp -r /etc/vernemq/* /tmp/conf/ \
- && cp -r /var/lib/vernemq/* /tmp/lib/ \
- && cp -r /var/log/vernemq/* /tmp/log/
+ && cp -r /var/lib/vernemq/* /tmp/lib/
 RUN rm /tmp/vernemq.deb
 
 ADD files/vm.args /tmp/vm.args
