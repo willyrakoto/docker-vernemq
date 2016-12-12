@@ -7,7 +7,6 @@ IP_ADDRESS=$(ip -4 addr show eth0 | grep -oP "(?<=inet).*(?=/)"| sed -e "s/^[[:s
 #chmod 755 /var/lib/vernemq /var/log/vernemq
 
 cp -r /tmp/lib/* /var/lib/vernemq/
-cp -r /tmp/log/* /var/log/vernemq/
 cp -r /tmp/conf/* /etc/vernemq/
 cp -r /tmp/vm.args /etc/vernemq/
 cp -r /tmp/rand_cluster_node.escript /var/lib/vernemq/rand_cluster_node.escript
