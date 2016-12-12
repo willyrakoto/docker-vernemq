@@ -23,25 +23,27 @@ RUN chown vernemq:vernemq /var/lib/vernemq /var/log/vernemq \
  && chmod 755 /var/lib/vernemq /var/log/vernemq
 
 # MQTT
-EXPOSE 8081 
+#EXPOSE 8081 
 
 # MQTT/SSL
-EXPOSE 8883
+#EXPOSE 8883
 
 # MQTT WebSockets
-EXPOSE 8080
+#EXPOSE 8080
 
 # VerneMQ Message Distribution
-EXPOSE 44053
+#EXPOSE 44053
 
 # EPMD - Erlang Port Mapper Daemon
-EXPOSE 4349
-    
-# Specific Distributed Erlang Port Range 
-EXPOSE 9100 9101 9102 9103 9104 9105 9106 9107 9108 9109
+# EXPOSE 4349
 
 # Prometheus Metrics
-EXPOSE 8888
+#EXPOSE 8888
+
+EXPOSE 8081 8883 8080 44053 4349 8888 
+
+# Specific Distributed Erlang Port Range 
+#EXPOSE 9100 9101 9102 9103 9104 9105 9106 9107 9108 9109
 
 VOLUME ["/var/log/vernemq", "/var/lib/vernemq", "/etc/vernemq"]
 
