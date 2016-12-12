@@ -8,7 +8,7 @@ RUN apt-get update && apt-get install -y \
     sudo \
 && rm -rf /var/lib/apt/lists/*
 
-ENV VERNEMQ_VERSION 0.15.2
+ENV VERNEMQ_VERSION 0.15.2-12db8f80
 
 ADD https://bintray.com/artifact/download/erlio/vernemq/deb/jessie/vernemq_$VERNEMQ_VERSION-1_amd64.deb /tmp/vernemq.deb
 
@@ -21,7 +21,7 @@ ADD bin/rand_cluster_node.escript /var/lib/vernemq/rand_cluster_node.escript
 
 
 # MQTT
-EXPOSE 1883 
+EXPOSE 8081 
 
 # MQTT/SSL
 EXPOSE 8883
