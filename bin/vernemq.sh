@@ -3,8 +3,8 @@
 IP_ADDRESS=$(ip -4 addr show eth0 | grep -oP "(?<=inet).*(?=/)"| sed -e "s/^[[:space:]]*//")
 
 # Ensure correct ownership and permissions on volumes
-chown vernemq:vernemq /var/lib/vernemq /var/log/vernemq
-chmod 755 /var/lib/vernemq /var/log/vernemq
+#chown vernemq:vernemq /var/lib/vernemq /var/log/vernemq
+#chmod 755 /var/lib/vernemq /var/log/vernemq
 
 # Ensure the Erlang node name is set correctly
 sed -i.bak "s/VerneMQ@127.0.0.1/VerneMQ@${IP_ADDRESS}/" /etc/vernemq/vm.args
